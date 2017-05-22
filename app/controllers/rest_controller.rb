@@ -1,4 +1,6 @@
 class RestController < ApplicationController
+  
+  skip_before_filter  :verify_authenticity_token
 
   def verify_user
     email = params[:email]
