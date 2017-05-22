@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'rest/verify_user'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope :rest do
+    post "/verify_user" => "rest#verify_user"
+  end
+
 end
