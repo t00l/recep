@@ -1,10 +1,9 @@
 class RestController < ApplicationController
-  
+
   skip_before_filter  :verify_authenticity_token
 
   def verify_user
-    email = params[:email]
-    user = User.find_by(email: email)
+    user = User.find_by(email: params[:email])
     if compare(user.image, params[:image])
         ok = {"message": "OK" }.to_json
         render json: ok, status: :ok
